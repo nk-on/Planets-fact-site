@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap');
 body{
   font-family: "Antonio", serif;
+  background-image: url('public/assets/background-stars.svg');
+  background-size: cover;
+  background-color: #000;
 }
