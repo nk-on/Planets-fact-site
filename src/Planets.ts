@@ -1,5 +1,6 @@
 const planets = [
     {
+        id: 0,
         name: "Mercury",
         description: "The smallest and innermost planet in the Solar System, known for its extreme temperature variations.",
         data: [
@@ -13,6 +14,7 @@ const planets = [
         imageGeology: "mercury-geology.jpg"
     },
     {
+        id: 1,
         name: "Venus",
         description: "The hottest planet in the Solar System with a thick, toxic atmosphere and runaway greenhouse effect.",
         data: [
@@ -26,6 +28,7 @@ const planets = [
         imageGeology: "venus-geology.jpg"
     },
     {
+        id: 2,
         name: "Earth",
         description: "The only planet known to support life, with a diverse climate and liquid water on its surface.",
         data: [
@@ -39,6 +42,7 @@ const planets = [
         imageGeology: "earth-geology.jpg"
     },
     {
+        id: 3,
         name: "Mars",
         description: "The Red Planet, known for its iron-rich soil, thin atmosphere, and potential for past microbial life.",
         data: [
@@ -52,6 +56,7 @@ const planets = [
         imageGeology: "mars-geology.jpg"
     },
     {
+        id: 4,
         name: "Jupiter",
         description: "The largest planet in the Solar System, a gas giant with a massive storm called the Great Red Spot.",
         data: [
@@ -65,6 +70,7 @@ const planets = [
         imageGeology: "jupiter-geology.jpg"
     },
     {
+        id: 5,
         name: "Saturn",
         description: "Famous for its stunning ring system, Saturn is a gas giant with a low density and numerous moons.",
         data: [
@@ -78,6 +84,7 @@ const planets = [
         imageGeology: "saturn-geology.jpg"
     },
     {
+        id: 6,
         name: "Uranus",
         description: "An ice giant with a unique sideways rotation and a pale blue-green color due to methane in its atmosphere.",
         data: [
@@ -91,6 +98,7 @@ const planets = [
         imageGeology: "uranus-geology.jpg"
     },
     {
+        id: 7,
         name: "Neptune",
         description: "The farthest planet from the Sun, known for its deep blue color, strong winds, and dynamic weather patterns.",
         data: [
