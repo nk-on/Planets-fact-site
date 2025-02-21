@@ -8,13 +8,15 @@ export default function PlanetPage() {
   const [mode, setmode] = useState<string>("overview");
   const planetModes = ["overview", "structure", "geology"];
   const currentPlanet = data.find((dataElement) => dataElement.name === planetName);
+  const currentPlanetMode = currentPlanet[mode]
+  const currentPlanetImages = currentPlanet?.images
   return (
     <div className="flex flex-col justify-center items-center w-[100%] h-[100%] gap-[10px]">
       <div className="w-[80%] flex justify-between items-center">
-        {<img src={currentPlanet?.images[mode]} />}
+        {<img src={currentPlanetImages[mode]} />}
         <div className="text-[#fff] w-[50%]">
           <h1 className="text-[80px]">{currentPlanet?.name}</h1>
-          <p className="text-[14px]">{<>{currentPlanet[mode].content} <span className="flex">Source:{<Link to={currentPlanet[mode].source}>Wikipedia</Link>}</span></>}</p>
+          <p className="text-[14px]">{<>{currentPlanetMode.content} <span className="flex">Source:{<Link to={currentPlanet.source}>Wikipedia</Link>}</span></>}</p>
           <div className="flex flex-col">
             {planetModes.map((mode) => {
               return <PlanetMode mode={mode} setPlanetMode={setmode} />;
