@@ -12,10 +12,10 @@ const router = createBrowserRouter(
       children:[
         {
           path:'/',
-          element:<Navigate to = {'/1'} />
+          element:<Navigate to = {'/Mercury'} />
         },
         {
-          path:'/:planetId',
+          path:'/:planetName',
           element:<PlanetPage />
         }
       ]

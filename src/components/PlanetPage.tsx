@@ -1,56 +1,55 @@
-import planets from "../Planets";
+import data from '../data.json'
 import { useParams } from "react-router";
 import PlanetMode from "./planetMode";
 import { useState } from "react";
 export default function PlanetPage() {
-  const { planetId } = useParams();
+  const { planetName } = useParams();
   const dataArr: string[] = [
-    "rotationTime",
-    "revolutionTime",
+    "rotation",
+    "revolution",
     "radius",
-    "avgTemperature",
+    "temperature",
   ];
-  const [planetMode, setPlanetMode] = useState<string>("overview");
-  const currentPlanet = planets.find((planet) => planet.id === Number(planetId));
+  const [mode, setmode] = useState<string>("overview");
+  const planetModes = ["overview","structure","geology"];
+  const currentPlanet = data.find(dataElement=> dataElement.name === planetName);
    return (<div className="flex flex-col justify-center items-center w-[100%] h-[100%] gap-[10px]">
-      <div className="w-[100%] flex justify-between items-center">
-      {
-             currentPlanet?.description.map((planetDescription)=>{
-              if(Object.keys(planetDescription)[0] === planetMode){
-               return <img src={Object.values(planetDescription)[1]} />
-              }
-           })
-          }
+      <div className="w-[80%] flex justify-between items-center">
+        {
+          <img src={currentPlanet?.images[mode]}/>
+        }
         <div className="text-[#fff] w-[50%]">
           <h1 className="text-[80px]">{currentPlanet?.name}</h1>
-          <p className="text-[14px]"></p>
+          <p className="text-[14px]">
+            {
+              currentPlanet[mode].content 
+            }
+          </p>
           <div className="flex flex-col">
-            {currentPlanet?.description.map((planetMode) => (
-              <PlanetMode
-                planetMode={Object.keys(planetMode)[0]}
-                setPlanetMode={setPlanetMode}
-              />
-            ))}
+            {planetModes.map((mode)=>{
+              return <PlanetMode mode = {mode} setPlanetMode={setmode} />
+            })}
           </div>
         </div>
       </div>
       <div className="flex">
-        {currentPlanet?.data.map((planet, index) => {
-          const title: string = dataArr[index];
-          return (
-            <div
-              key={Number(planetId)}
+        {
+          dataArr.map((data,index)=>{
+            return (
+              <div
+              key={Number(index)}
               className=" flex flex-col justify-center items-center w-[255px] h-[128px] border border-[#FFFFFF] text-[#fff]"
             >
               {
                 <>
-                  <h1>{title}</h1>
-                  <p>{planet[title]}</p>
+                  <h1>{data}</h1>
+                  <p>{currentPlanet[data]}</p>
                 </>
               }
             </div>
-          );
-        })}
+            )
+          })
+        }
       </div>
     </div>
   );

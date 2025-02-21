@@ -1,4 +1,4 @@
-import planets from "../Planets";
+import data from "../data.json"
 export default function Header() {
   return (
     <>
@@ -6,7 +6,7 @@ export default function Header() {
         <h1 className=" text-[28px]">Planets</h1>
             <ul className="flex w-[100%] md:w-[30%]  justify-between cursor-pointer">
                 {
-                    planets.map((planet)=> <li className="uppercase text-[11px] font-700" key={planet.id}>{planet.name}</li>)
+                  data.map((planet,index)=> <li className="uppercase text-[11px] font-700" key={index}>{planet.name}</li>)
                 }
             </ul>
       </div>
