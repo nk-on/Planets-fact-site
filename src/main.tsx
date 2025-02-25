@@ -4,11 +4,12 @@ import './index.css'
 import PlanetPage from './components/PlanetPage.tsx'
 import { createBrowserRouter,Navigate,RouterProvider } from 'react-router'
 import Layout from './components/Layout.tsx'
+import Provider from './components/Context.tsx'
 const router = createBrowserRouter(
   [
     {
       path:'/',
-      element:<Layout />,
+      element:<Provider><Layout /></Provider>,
       children:[
         {
           path:'/',

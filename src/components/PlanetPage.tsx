@@ -2,6 +2,9 @@ import data from "../data.json";
 import { Link, useParams } from "react-router";
 import PlanetMode from "./planetMode";
 import { useState } from "react";
+import { useContext } from "react";
+import { BurgerContext } from "./Context";
+import BackgroundMobile from "./BackgroundMobile";
 export default function PlanetPage() {
   const { planetName } = useParams();
   const dataArr: string[] = ["rotation", "revolution", "radius", "temperature"];
@@ -10,10 +13,19 @@ export default function PlanetPage() {
   const currentPlanet = data.find((dataElement) => dataElement.name === planetName);
   const currentPlanetMode = currentPlanet[mode];
   const currentPlanetImages = currentPlanet?.images;
+  const { burgerClicked,isMobile } = useContext(BurgerContext);
+  if (burgerClicked && isMobile) {
+    return <BackgroundMobile />;
+  }
   return (
     <div className="flex flex-col justify-center items-center w-[100%] h-[100%] gap-[10px]">
       <div className="w-[80%] flex flex-col md:flex-row justify-between items-center">
-        {<img src={currentPlanetImages[mode]} className="w-[184px] h-[184px] md:w-[290px] md:h-[290px] mt-[120px]"/>}
+        {
+          <img
+            src={currentPlanetImages[mode]}
+            className="w-[184px] h-[184px] md:w-[290px] md:h-[290px] mt-[120px]"
+          />
+        }
         <div className="text-[#fff] md:w-[50%] w-[100%] gap-[60px] flex flex-row items-center justify-between md:flex-col md:items-stretch">
           <div>
             <h1 className="text-[80px]">{currentPlanet?.name}</h1>
@@ -29,8 +41,8 @@ export default function PlanetPage() {
             </p>
           </div>
           <div className="flex flex-col">
-            {planetModes.map((mode) => {
-              return <PlanetMode mode={mode} setPlanetMode={setmode} />;
+            {planetModes.map((mode,index) => {
+              return <PlanetMode mode={mode} setPlanetMode={setmode} key={index} />;
             })}
           </div>
         </div>
