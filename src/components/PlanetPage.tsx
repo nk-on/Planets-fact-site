@@ -19,6 +19,13 @@ export default function PlanetPage() {
   }
   return (
     <div className="flex flex-col justify-center items-center w-[100%] h-[100%] gap-[10px]">
+      {
+        isMobile && <div className="mt-[80px] px-[10px] w-[100%] flex justify-between items-center text-[#fff] border-[#fff]  border-b">
+        {planetModes.map((mode,index) => {
+          return <PlanetMode mode={mode} setPlanetMode={setmode} key={index} />;
+        })}
+      </div>
+      }
       <div className="w-[80%] flex flex-col md:flex-row justify-between items-center">
         {
           <img
@@ -40,11 +47,13 @@ export default function PlanetPage() {
               }
             </p>
           </div>
-          <div className="flex flex-col">
+          {
+            !isMobile && <div className="flex flex-col">
             {planetModes.map((mode,index) => {
               return <PlanetMode mode={mode} setPlanetMode={setmode} key={index} />;
             })}
-          </div>
+          </div> 
+          }
         </div>
       </div>
       <div className="flex w-[90%] justify-center gap-[10px]">
