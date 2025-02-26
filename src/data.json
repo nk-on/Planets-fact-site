@@ -79,7 +79,7 @@
   },
   {
     "color":"#FF6A45",
-    "buttonColor":"#D83A34",
+    "buttonColor":"#D14C32",
     "name": "Mars",
     "overview": {
       "content": "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the \"Red Planet\".",
@@ -105,7 +105,7 @@
   },
   {
     "color":"#ECAD7A",
-    "buttonColor":"#CD5120",
+    "buttonColor":"#D14C32",
     "name": "Jupiter",
     "overview": {
       "content": "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass two and a half times that of all the other planets in the Solar System combined, but less than one-thousandth the mass of the Sun.",
@@ -131,7 +131,7 @@
   },
   {
     "color":"#FCCB6B",
-    "buttonColor":"#1EC1A2",
+    "buttonColor":"#CD5120",
     "name": "Saturn",
     "overview": {
       "content": "Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine and a half times that of Earth. It only has one-eighth the average density of Earth.",
@@ -157,7 +157,7 @@
   },
   {
     "color":"#65F0D5",
-    "buttonColor":"#2D68F0",
+    "buttonColor":"#1EC1A2",
     "name": "Uranus",
     "overview": {
       "content": "Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky, Uranus according to Greek mythology, was the great-grandfather of Ares. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System.",
@@ -183,6 +183,7 @@
   },
   {
     "color":"#497EFA",
+    "buttonColor":"#2D68F0",
     "name": "Neptune",
     "overview": {
       "content": "Neptune is the eighth and farthest-known Solar planet from the Sun. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. It is 17 times the mass of Earth, more massive than its near-twin Uranus.",
