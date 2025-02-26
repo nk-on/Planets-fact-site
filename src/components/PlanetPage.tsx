@@ -10,8 +10,8 @@ export default function PlanetPage() {
   const dataArr: string[] = ["rotation", "revolution", "radius", "temperature"];
   const [mode, setmode] = useState<string>("overview");
   const planetModes = ["overview", "structure", "geology"];
-  const currentPlanet = data.find((dataElement) => dataElement.name === planetName);
-  const currentPlanetMode = currentPlanet[mode];
+  const currentPlanet = data.find((dataElement) => dataElement.name === planetName) || data[0];
+  const currentPlanetMode = currentPlanet ? currentPlanet[mode as "overview" | "structure" | "geology"] : '';
   const currentPlanetImages = currentPlanet?.images;
   const { burgerClicked,isMobile } = useContext(BurgerContext);
   if (burgerClicked && isMobile) {
@@ -22,7 +22,7 @@ export default function PlanetPage() {
       {
         isMobile && <div className="mt-[80px] px-[10px] w-[100%] flex justify-between items-center text-[#fff] border-[#fff]  border-b">
         {planetModes.map((mode,index) => {
-          return <PlanetMode mode={mode} setPlanetMode={setmode} key={index} />;
+          return <PlanetMode mode={mode} color={currentPlanet?.buttonColor} setPlanetMode={setmode} key={index} />;
         })}
       </div>
       }
@@ -50,7 +50,7 @@ export default function PlanetPage() {
           {
             !isMobile && <div className="flex flex-col">
             {planetModes.map((mode,index) => {
-              return <PlanetMode mode={mode} setPlanetMode={setmode} key={index} />;
+              return <PlanetMode mode={mode} color={currentPlanet?.buttonColor} setPlanetMode={setmode} key={index} />;
             })}
           </div> 
           }
