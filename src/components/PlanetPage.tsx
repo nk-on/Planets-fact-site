@@ -37,6 +37,7 @@ export default function PlanetPage() {
                 return (
                   <PlanetMode
                     mode={mode}
+                    index = {index}
                     color={currentPlanet?.buttonColor}
                     setPlanetMode={setmode}
                     key={index}
@@ -71,11 +72,12 @@ export default function PlanetPage() {
                 </p>
               </div>
               {!isMobile && (
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-[10px] w-[350px]">
                   {planetModes.map((mode, index) => {
                     return (
                       <PlanetMode
                         mode={mode}
+                        index={index}
                         color={currentPlanet?.buttonColor}
                         setPlanetMode={setmode}
                         key={index}
