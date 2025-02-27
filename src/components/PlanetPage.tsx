@@ -7,14 +7,22 @@ import { BurgerContext } from "./Context";
 import BackgroundMobile from "./BackgroundMobile";
 export default function PlanetPage() {
   const { planetName } = useParams();
-  const dataArr: string[] = ["rotation", "revolution", "radius", "temperature"];
+  const dataArr: Array<"rotation" | "revolution" | "radius" | "temperature"> = [
+    "rotation",
+    "revolution",
+    "radius",
+    "temperature",
+  ];
   const [mode, setmode] = useState<string>("overview");
   const planetModes = ["overview", "structure", "geology"];
-  const currentPlanet = data.find((dataElement) => dataElement.name === planetName);
+  const currentPlanet =
+    data.find((dataElement) => dataElement.name === planetName) ;
   const currentPlanetMode = currentPlanet
     ? currentPlanet[mode as "overview" | "structure" | "geology"]
     : "";
-  const currentPlanetImages = currentPlanet?.images;
+  const currentPlanetImage = currentPlanet?.images
+    ? currentPlanet.images[mode as "overview" | "structure" | "geology"]
+    : "";
   const { burgerClicked, isMobile } = useContext(BurgerContext);
   if (burgerClicked && isMobile) {
     return <BackgroundMobile />;
@@ -40,7 +48,7 @@ export default function PlanetPage() {
           <div className="w-[80%] flex flex-col md:flex-row justify-between items-center">
             {
               <img
-                src={currentPlanetImages[mode]}
+                src={currentPlanetImage}
                 className="w-[184px] h-[184px] md:w-[290px] md:h-[290px] mt-[120px]"
               />
             }
@@ -50,10 +58,14 @@ export default function PlanetPage() {
                 <p className="text-[14px]">
                   {
                     <>
-                      {currentPlanetMode.content}{" "}
-                      <span className="flex">
-                        Source:{<Link to={currentPlanet.source}>Wikipedia</Link>}
-                      </span>
+                      {currentPlanetMode && typeof currentPlanetMode === "object" ? (
+                        <>
+                          {currentPlanetMode.content}{" "}
+                          <span className="flex">
+                            Source: <Link to={currentPlanetMode.source}>Wikipedia</Link>
+                          </span>
+                        </>
+                      ) : null}
                     </>
                   }
                 </p>
@@ -84,7 +96,7 @@ export default function PlanetPage() {
                   {
                     <>
                       <h1>{data}</h1>
-                      <p>{currentPlanet[data]}</p>
+                      <p>{currentPlanet[data]} </p>
                     </>
                   }
                 </div>
