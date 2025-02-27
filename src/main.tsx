@@ -13,14 +13,14 @@ const router = createBrowserRouter(
       children:[
         {
           path:'/',
-          element:<Navigate to = {'/Mercury'} />
+          element:<Navigate to = {'/Mercury'}  replace/>
         },
         {
           path:'/:planetName',
           element:<PlanetPage />
-        }
+        },
       ]
-    }
+    },
   ]
 )
 createRoot(document.getElementById('root')!).render(
