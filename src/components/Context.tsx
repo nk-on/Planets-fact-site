@@ -1,4 +1,4 @@
-import { Children, createContext, useState } from "react"
+import {  createContext, ReactNode, useState } from "react"
 interface BurgerContextType {
     burgerClicked: boolean;
     setBurgerClicked: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,7 +13,7 @@ export const BurgerContext = createContext<BurgerContextType>(
         setIsMobile:()=>{}
     }
 );
-export default function Provider({children}){
+export default function Provider({children}:{children:ReactNode}){
     const [burgerClicked,setBurgerClicked] = useState<boolean>(false);
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 425);
     return(
