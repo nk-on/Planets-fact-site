@@ -4,8 +4,8 @@ import { NavLink } from "react-router";
 import { useContext } from "react";
 import { BurgerContext } from "./Context";
 export default function Header() {
-  const { burgerClicked, setBurgerClicked } = useContext(BurgerContext);
-  const {isMobile,setIsMobile} = useContext(BurgerContext)
+  const { setBurgerClicked } = useContext(BurgerContext);
+  const { isMobile, setIsMobile } = useContext(BurgerContext);
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 600);
     window.addEventListener("resize", handleResize);
@@ -21,7 +21,6 @@ export default function Header() {
             alt="hamburger"
             onClick={() => {
               setBurgerClicked((prev) => !prev);
-              console.log(burgerClicked);
             }}
           />
         ) : (
@@ -34,7 +33,6 @@ export default function Header() {
           </ul>
         )}
       </div>
-      {/* <Outlet /> */}
     </>
   );
 }
