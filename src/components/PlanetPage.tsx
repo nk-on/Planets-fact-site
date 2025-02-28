@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { BurgerContext } from "./Context";
 import BackgroundMobile from "./BackgroundMobile";
 import PlanetImage from "./PlanetPage/PlanetImage";
+import DataCard from "./PlanetPage/dataContainer";
 export default function PlanetPage() {
   const { planetName } = useParams();
   const dataArr: Array<"rotation" | "revolution" | "radius" | "temperature"> = [
@@ -86,17 +87,7 @@ export default function PlanetPage() {
           <div className="flex w-[90%] justify-center gap-[10px]">
             {dataArr.map((data, index) => {
               return (
-                <div
-                  key={Number(index)}
-                  className=" flex flex-col justify-center items-start gap-[5px] px-[30px] w-[255px] h-[128px] border border-[#FFFFFF] text-[#fff]"
-                >
-                  {
-                    <>
-                      <h1 className="text-[#838391] uppercase tracking-[1px]">{data}</h1>
-                      <p className=" text-[40px]">{currentPlanet[data]} </p>
-                    </>
-                  }
-                </div>
+                <DataCard key = {index} data = {data} value = {currentPlanet[data]} />
               );
             })}
           </div>
