@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { BurgerContext } from "./Context";
 import BackgroundMobile from "./BackgroundMobile";
+import PlanetImage from "./PlanetPage/PlanetImage";
 export default function PlanetPage() {
   const { planetName } = useParams();
   const dataArr: Array<"rotation" | "revolution" | "radius" | "temperature"> = [
@@ -46,22 +47,7 @@ export default function PlanetPage() {
             </div>
           )}
           <div className="w-[80%] flex flex-col md:flex-row justify-between items-center">
-            {mode === "geology" ? 
-              <div>
-                <img
-                src={currentPlanet.images.overview}
-                className="w-[184px] h-[184px] relative bottom-[120px] md:w-[290px] md:h-[290px] mt-[120px]"
-              />
-                <img
-                src={currentPlanetImage}
-                className="w-[184px] h-[184px] absolute lg:bottom-[120px] bottom-[350px] md:w-[290px] md:h-[290px] mt-[120px]"
-              />
-              </div> : 
-              <img
-                src={currentPlanetImage}
-                className="w-[184px] h-[184px] bottom-[30px] md:w-[290px] md:h-[290px] mt-[120px]"
-              />
-            }
+            <PlanetImage mode={mode}  imageOverview= {currentPlanet.images.overview} currentPlanetImage= {currentPlanetImage} />
             <div className="text-[#fff] md:w-[50%] w-[100%] gap-[60px] flex flex-row items-center justify-between md:flex-col md:items-stretch">
               <div>
                 <h1 className="text-[80px]">{currentPlanet?.name}</h1>
