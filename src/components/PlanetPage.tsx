@@ -15,8 +15,7 @@ export default function PlanetPage() {
   ];
   const [mode, setmode] = useState<string>("overview");
   const planetModes = ["overview", "structure", "geology"];
-  const currentPlanet =
-    data.find((dataElement) => dataElement.name === planetName) ;
+  const currentPlanet = data.find((dataElement) => dataElement.name === planetName);
   const currentPlanetMode = currentPlanet
     ? currentPlanet[mode as "overview" | "structure" | "geology"]
     : "";
@@ -37,7 +36,7 @@ export default function PlanetPage() {
                 return (
                   <PlanetMode
                     mode={mode}
-                    index = {index}
+                    index={index}
                     color={currentPlanet?.buttonColor}
                     setPlanetMode={setmode}
                     key={index}
@@ -47,10 +46,20 @@ export default function PlanetPage() {
             </div>
           )}
           <div className="w-[80%] flex flex-col md:flex-row justify-between items-center">
-            {
+            {mode === "geology" ? 
+              <div>
+                <img
+                src={currentPlanet.images.overview}
+                className="w-[184px] h-[184px] relative bottom-[120px] md:w-[290px] md:h-[290px] mt-[120px]"
+              />
+                <img
+                src={currentPlanetImage}
+                className="w-[184px] h-[184px] absolute lg:bottom-[120px] bottom-[350px] md:w-[290px] md:h-[290px] mt-[120px]"
+              />
+              </div> : 
               <img
                 src={currentPlanetImage}
-                className="w-[184px] h-[184px] md:w-[290px] md:h-[290px] mt-[120px]"
+                className="w-[184px] h-[184px] bottom-[30px] md:w-[290px] md:h-[290px] mt-[120px]"
               />
             }
             <div className="text-[#fff] md:w-[50%] w-[100%] gap-[60px] flex flex-row items-center justify-between md:flex-col md:items-stretch">
@@ -93,12 +102,12 @@ export default function PlanetPage() {
               return (
                 <div
                   key={Number(index)}
-                  className=" flex flex-col justify-center items-center w-[255px] h-[128px] border border-[#FFFFFF] text-[#fff]"
+                  className=" flex flex-col justify-center items-start gap-[5px] px-[30px] w-[255px] h-[128px] border border-[#FFFFFF] text-[#fff]"
                 >
                   {
                     <>
-                      <h1>{data}</h1>
-                      <p>{currentPlanet[data]} </p>
+                      <h1 className="text-[#838391] uppercase tracking-[1px]">{data}</h1>
+                      <p className=" text-[40px]">{currentPlanet[data]} </p>
                     </>
                   }
                 </div>
