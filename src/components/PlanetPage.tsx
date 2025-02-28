@@ -84,7 +84,7 @@ export default function PlanetPage() {
               )}
             </div>
           </div>
-          <div className="flex w-[90%] justify-center gap-[10px]">
+          <div className="flex flex-wrap w-[90%]  justify-center gap-[10px]">
             {dataArr.map((data, index) => {
               return (
                 <DataCard key = {index} data = {data} value = {currentPlanet[data]} />
