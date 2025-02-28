@@ -50,9 +50,9 @@ export default function PlanetPage() {
           <div className="w-[80%] flex flex-col md:flex-row justify-between items-center">
             <PlanetImage mode={mode}  imageOverview= {currentPlanet.images.overview} currentPlanetImage= {currentPlanetImage} />
             <div className="text-[#fff] md:w-[50%] w-[100%] gap-[60px] flex flex-row items-center justify-between md:flex-col md:items-stretch">
-              <div>
+              <div className="text-center sm:text-left">
                 <h1 className="text-[80px]">{currentPlanet?.name}</h1>
-                <p className="text-[14px]">
+                <p className="text-[14px] sm:block flex flex-col items-center">
                   {
                     <>
                       {currentPlanetMode && typeof currentPlanetMode === "object" ? (
