@@ -12,9 +12,9 @@ export default function PlanetMode({ mode, index, color, setPlanetMode }: Planet
   const {isMobile} = useContext(BurgerContext)
   return (
     <button
-      className={` flex justify-around items-center  h-[48px] sm:border border-[#FFFFFF] font-bold tracking-[2.57px]`}
-      style={{ backgroundColor: userHovered ? color : "",}}
-      key={Math.floor(Math.random() * 1000)}
+      className={` flex justify-between items-center lg:pl-[30px] lg:pr-[150px]  h-[48px] sm:border sm:border-[#FFFFFF]  font-bold tracking-[2.57px] leading-[25px] uppercase`}
+      style={{ backgroundColor: userHovered && !isMobile ? color : "", borderBottom: (userHovered && isMobile ) ? `5px solid ${color}`:'1px solid [#fff]'}}
+      key={index}
       onClick={() => {
         setPlanetMode(mode);
       }}
