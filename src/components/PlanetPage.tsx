@@ -25,6 +25,7 @@ export default function PlanetPage() {
     ? currentPlanet.images[mode as "overview" | "structure" | "geology"]
     : "";
   const { burgerClicked, isMobile } = useContext(BurgerContext);
+  const [clickedIndex,setClickedIndex] = useState<number>(-1);
   if (burgerClicked && isMobile) {
     return <BackgroundMobile />;
   }
@@ -35,11 +36,14 @@ export default function PlanetPage() {
           {isMobile && (
             <div className="mt-[40vh] px-[10px] w-[100%] pt-[25px] flex justify-between text-[#fff] border-[#fff]  border-b">
               {planetModes.map((mode, index) => {
+               
                 return (
                   <PlanetMode
                     mode={mode}
                     index={index}
                     color={currentPlanet?.buttonColor}
+                    clickedIndex={clickedIndex}
+                    setClickedIndex={setClickedIndex}
                     setPlanetMode={setmode}
                     key={index}
                   />
@@ -75,6 +79,8 @@ export default function PlanetPage() {
                         mode={mode}
                         index={index}
                         color={currentPlanet?.buttonColor}
+                        clickedIndex={clickedIndex}
+                        setClickedIndex={setClickedIndex}
                         setPlanetMode={setmode}
                         key={index}
                       />
