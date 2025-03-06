@@ -32,7 +32,7 @@ export default function PlanetPage() {
   return (
     <>
       {currentPlanet ? (
-        <div className="flex flex-col justify-center items-center w-[100%] h-[100%] lg:gap-[100px] gap-[50px]">
+        <div className="flex flex-col justify-center items-center w-[100%] h-[100%] lg:gap-[100px] gap-[50px] lg:mt-[60px]">
           {isMobile && (
             <div className="mt-[40vh] px-[10px] w-[100%] pt-[25px] flex justify-between text-[#fff] border-[#fff]  border-b">
               {planetModes.map((mode, index) => {
@@ -54,7 +54,7 @@ export default function PlanetPage() {
           <div className="w-[80%] flex flex-col md:flex-row justify-between items-center">
             <PlanetImage mode={mode}  imageOverview= {currentPlanet.images.overview} currentPlanetImage= {currentPlanetImage} />
             <div className="text-[#fff] md:w-[50%] w-[100%] gap-[20px] flex flex-row items-center justify-between  md:flex-col md:items-stretch">
-              <div className="lg:w-[120%] text-center sm:text-left flex flex-col sm:justify-center lg:items-center">
+              <div className="lg:w-[120%] text-center sm:text-left flex flex-col sm:justify-center lg:items-center gap-[20px]">
                 <h1 className="text-[80px]">{currentPlanet?.name}</h1>
                 <div className="text-[14px] sm:block flex flex-col  items-center ml-[-15px] lg:m-auto  text-[#badefe] w-[350px]">
                   {
