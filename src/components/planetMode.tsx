@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { useContext } from "react";
 import { BurgerContext } from "./Context";
 interface PlanetModeProps {
@@ -19,20 +19,29 @@ export default function PlanetMode({
 }: PlanetModeProps) {
   const [userHovered, setUserHovered] = useState<boolean>(false);
   const { isMobile } = useContext(BurgerContext);
+  function setBg(){
+    if(!isMobile && (clickedIndex === index)){
+      return `${color}`
+    }
+    if(userHovered && !isMobile){
+      return '#313149' 
+    }
+  }
   return (
     <button
       className={` flex justify-between items-center lg:pl-[30px] lg:pr-[150px]  h-[48px] sm:border sm:border-[#FFFFFF]  font-bold tracking-[2.57px] leading-[25px] uppercase`}
       onClick={() => {
         setPlanetMode(mode);
         setClickedIndex(index);
-        console.log(index)
+        
       }}
       style={{
-        backgroundColor: userHovered && !isMobile ? color : "",
+        backgroundColor: setBg(),
         borderBottom: (isMobile && clickedIndex === index) ? `5px solid ${color}` : "1px solid #fff",
       }}
       onMouseEnter={() => {
         setUserHovered(true);
+        setBg()
       }}
       onMouseLeave={() => {
         setUserHovered(false);
