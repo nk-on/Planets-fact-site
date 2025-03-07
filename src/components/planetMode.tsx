@@ -27,9 +27,18 @@ export default function PlanetMode({
       return '#313149' 
     }
   }
+  function displayMode(mode:string):string{
+    if(mode === 'structure' && !isMobile){
+      return `internal ${mode}`
+    }
+    if(mode === 'geology' && !isMobile){
+      return `surface ${mode}`
+    }
+    return 'overview';
+  }
   return (
     <button
-      className={` flex justify-between items-center lg:pl-[30px] lg:pr-[150px]  h-[48px] sm:border sm:border-[#FFFFFF]  font-bold tracking-[2.57px] leading-[25px] uppercase`}
+      className={` flex items-center lg:pl-[30px] text-[12px]  h-[48px] sm:border sm:border-[#FFFFFF]  font-bold tracking-[2.57px] leading-[25px] uppercase`}
       onClick={() => {
         setPlanetMode(mode);
         setClickedIndex(index);
@@ -48,7 +57,9 @@ export default function PlanetMode({
       }}
     >
       <div>{!isMobile && `0${index + 1}`}</div>
-      {mode}
+       <div className="lg:pl-[20px]">
+        {displayMode(mode)}
+       </div>
     </button>
   );
 }
