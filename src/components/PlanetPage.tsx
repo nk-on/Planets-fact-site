@@ -55,7 +55,7 @@ export default function PlanetPage() {
             <PlanetImage mode={mode}  imageOverview= {currentPlanet.images.overview} currentPlanetImage= {currentPlanetImage} />
             <div className="text-[#fff] md:w-[50%] w-[100%] gap-[20px] flex flex-row items-center justify-between  md:flex-col md:items-stretch">
               <div className="lg:w-[120%] text-center sm:text-left flex flex-col sm:justify-center lg:items-center gap-[20px]">
-                <h1 className="text-[80px]">{currentPlanet?.name}</h1>
+                <h1 className="text-[80px] lg:mr-[100px]">{currentPlanet?.name}</h1>
                 <div className="text-[14px] sm:block flex flex-col  items-center ml-[-15px] lg:m-auto  text-[#badefe] w-[350px]">
                   {
                     <>
@@ -90,7 +90,7 @@ export default function PlanetPage() {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap w-[90%]  justify-center gap-[10px]">
+          <div className="flex flex-wrap w-[90%]  justify-center gap-[10px] pb-[30px]">
             {dataArr.map((data, index) => {
               return (
                 <DataCard key = {index} data = {data} value = {currentPlanet[data]} />
