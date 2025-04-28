@@ -26,7 +26,7 @@ Users should be able to:
 ![Planet facts site](public/assets/screenshot.PNG)
 
 ### Links
--   Live Site URL: [Live site URL ](https://planets-fact-site-gilt.vercel.app/Mercury)
+-   Live Site URL: [Live site URL ](planets-fact-site-gilt.vercel.app)
 
 ## My process
 
@@ -37,7 +37,8 @@ Users should be able to:
 -   Flexbox
 -   CSS Grid
 -   [React](https://reactjs.org/)
--   
+-   [React Router](https://reactrouter.com/)
+  
 ### What I learned
 
 This project gave me the opportunity to test my layout skills and pratice in the case of a multipage website.
