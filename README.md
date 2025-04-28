@@ -15,7 +15,7 @@ This is a solution to the [Planets fact site challenge on Frontend Mentor](https
 
 ### The challenge
 
-Users should be able to:
+Users should are able to:
 
 -   View the optimal layout for the app depending on their device's screen size
 -   See hover states for all interactive elements on the page
