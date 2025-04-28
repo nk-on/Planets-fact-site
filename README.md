@@ -23,7 +23,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Planet facts site](public/assets/Planets fact site screenshot.PNG)
+![Planet facts site](public/assets/screenshot.PNG)
 
 ### Links
 -   Live Site URL: [Live site URL ](https://planets-fact-site-gilt.vercel.app/Mercury)
