@@ -63,7 +63,7 @@ export default function PlanetPage() {
                         <>
                           {currentPlanetMode.content}
                           <span className="flex text-[#6387b1] gap-[5px]">
-                            Source: <span className="underline"><Link to={currentPlanetMode.source}><span className="flex justify-between items-center w-[70px]">Wikipedia <img src="public/assets/icon-source.svg" alt="source" className="w-[12px] h-[12px]" /></span></Link></span>
+                            Source: <span className="underline"><Link to={currentPlanetMode.source}><span className="flex justify-between items-center w-[70px]">Wikipedia <img src="./assets/icon-source.svg" alt="source" className="w-[12px] h-[12px]" /></span></Link></span>
                           </span>
                         </>
                       ) : null}
